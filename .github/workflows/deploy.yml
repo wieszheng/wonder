@@ -21,11 +21,12 @@ jobs:
 
       - name: Build
         uses: actions/setup-node@master
-      - run: npm install
+      - run: npm install -g cnpm
+      - run: cnpm install
       - run: npm run build
-      - run: tar -zcvf release.tgz dist
+      # - run: tar -zcvf release.tgz dist
 
-      - name: Deploy to Staging My server
+      - name: Deploy to Staging my server
         uses: easingthemes/ssh-deploy@v4.1.8
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
