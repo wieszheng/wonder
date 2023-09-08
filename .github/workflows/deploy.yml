@@ -1,0 +1,37 @@
+# 案例配置
+# 工作流名称
+name: 'deploy'
+
+on:
+  # 推送触发器，例如：这里表示的是 监听 master 分支推送，而且只有 paths 路径下的文件有修改的推送才会执行这个 workflows
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/**/**'
+      - 'package.json'
+
+# 作业
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build
+        uses: actions/setup-node@master
+      - run: npm install
+      - run: npm run build
+      - run: tar -zcvf release.tgz dist
+
+      - name: Deploy to Staging My server
+        uses: easingthemes/ssh-deploy@v4.1.8
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rltgoDzvO"
+          SOURCE: "dist/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
