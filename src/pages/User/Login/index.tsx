@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import {GithubOutlined, LockOutlined, MailOutlined, UserDeleteOutlined, UserOutlined} from '@ant-design/icons';
+import {GithubOutlined, LockOutlined, MailOutlined, RobotOutlined, UserOutlined} from '@ant-design/icons';
 import {
   LoginForm,
   ProFormText,
@@ -182,7 +182,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.username.placeholder',
-                  defaultMessage: '用户名: admin',
+                  defaultMessage: '请输入用户名',
                 })}
                 rules={[
                   {
@@ -204,7 +204,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: admin',
+                  defaultMessage: '请输入密码',
                 })}
                 rules={[
                   {
@@ -240,14 +240,14 @@ const Login: React.FC = () => {
               <ProFormText
                 fieldProps={{
                   size: 'large',
-                  prefix: <UserDeleteOutlined />,
+                  prefix: <RobotOutlined />,
                 }}
                 name="name"
-                placeholder="请输入姓名"
+                placeholder="请输入昵称"
                 rules={[
                   {
                     required: true,
-                    message: "请输入姓名",
+                    message: "请输入昵称",
                   }
                 ]}
               />
