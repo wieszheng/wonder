@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import {GithubOutlined, LockOutlined, MailOutlined, MobileOutlined, UserOutlined} from '@ant-design/icons';
+import {GithubOutlined, LockOutlined, MailOutlined, UserDeleteOutlined, UserOutlined} from '@ant-design/icons';
 import {
   LoginForm,
   ProFormText,
@@ -240,7 +240,7 @@ const Login: React.FC = () => {
               <ProFormText
                 fieldProps={{
                   size: 'large',
-                  prefix: <MobileOutlined/>,
+                  prefix: <UserDeleteOutlined />,
                 }}
                 name="name"
                 placeholder="请输入姓名"
