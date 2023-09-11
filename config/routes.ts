@@ -69,6 +69,12 @@ export default [
     component: './ApiTest/Project',
   },
   {
+    path: '/project/:id',
+    hideInMenu: true,
+    name: '项目详情',
+    component: './ApiTest/ProjectDetail',
+  },
+  {
     path: '/tool',
     name: '实用工具',
     icon: 'tool',
