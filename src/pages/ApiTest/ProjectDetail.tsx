@@ -1,6 +1,7 @@
 import {Avatar, Card, Tabs} from 'antd';
 import React, {useEffect, useState} from 'react';
 import ProjectRole from '@/components/Project/ProjectRole';
+import ProjectInfo from "@/components/Project/ProjectInfo";
 import {PageContainer,PageHeader} from "@ant-design/pro-components";
 import styles from "./Project.less";
 import {useParams} from '@umijs/max';
@@ -10,6 +11,7 @@ import {listUsers} from "@/services/user";
 import {queryProject} from "@/services/project";
 import LoadingFailed from '@/assets/LoadingFailed.svg';
 import logo from '@/assets/logo.svg';
+
 const {TabPane} = Tabs;
 
 const ProjectDetail: React.FC = () => {
@@ -61,7 +63,7 @@ const ProjectDetail: React.FC = () => {
             <ProjectRole users={users} project={projectData} roles={roles} fetchData={fetchData}/>
           </TabPane>
           <TabPane tab='项目设置' key='2'>
-            {/*<ProjectInfo data={projectData} users={users} reloadData={fetchData}/>*/}
+            <ProjectInfo data={projectData} users={users} reloadData={fetchData}/>
           </TabPane>
         </Tabs>
       </Card>

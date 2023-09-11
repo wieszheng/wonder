@@ -1,7 +1,7 @@
-import {Avatar, Card, Typography} from 'antd';
+import {Avatar, Card, Tag, Typography} from 'antd';
 import React from 'react';
 import {PageContainer} from "@ant-design/pro-components";
-import {HeartTwoTone, SmileTwoTone} from "@ant-design/icons";
+import {HeartTwoTone, MailOutlined, SmileTwoTone, UserOutlined} from "@ant-design/icons";
 import styles from './Workspace.less';
 import {useModel} from "@umijs/max";
 import { LoginUser } from '@/services/auth';
@@ -23,6 +23,15 @@ const getWelcome = (user: string) => {
     return `晚上好, ${user}! 不早了，喝杯热牛奶🥛再去休息吧~`
   }
 }
+const getRole = (role: number) => {
+  if (role === 0) {
+    return `普通用户`
+  } else if (role === 1) {
+    return `管理员!`
+  } else if (role === 2) {
+    return `超级管理员`
+  }
+}
 
 const getContent = (currentUser: LoginUser) => {
   return (
@@ -36,7 +45,8 @@ const getContent = (currentUser: LoginUser) => {
           {getWelcome(currentUser.name)}
         </div>
         <div>
-          {currentUser.email}
+          <Tag icon={<UserOutlined/>} color='#3b5999'>{getRole(currentUser.role)}</Tag>
+          <Tag icon={<MailOutlined/>} color='cyan'>{currentUser.email}</Tag>
         </div>
       </div>
     </div>

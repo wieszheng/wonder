@@ -31,13 +31,13 @@ export async function queryProject(params: any) {
   });
 }
 
-// export async function updateProject(data) {
-//   return request(`/project/update`, {
-//     method: 'POST',
-//     data,
-//     headers: auth.headers(),
-//   });
-// }
+export async function updateProject(data: any) {
+  return request(`/project/update`, {
+    method: 'POST',
+    data,
+    headers: auth.headers(),
+  });
+}
 
 export async function insertProjectRole(data: any) {
   return request(`/project/role/insert`, {
@@ -55,7 +55,7 @@ export async function updateProjectRole(data: any) {
   });
 }
 
-export async function deleteProjectRole(data) {
+export async function deleteProjectRole(data: any) {
   return request(`/project/role/delete`, {
     method: 'POST',
     data,
