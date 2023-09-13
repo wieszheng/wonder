@@ -27,6 +27,12 @@ const ProjectRole: React.FC<any> = ({project, roles, users, fetchData}) => {
       ...roles,
     ])
   }, [roles, users]);
+  const confirm = async (item: { id: any; }) => {
+    const res = await deleteProjectRole({id: item.id});
+    if (auth.response(res, true)) {
+      await fetchData();
+    }
+  }
   const onSearchRole = (name: string) => {
     if (name === '') {
       setData([
