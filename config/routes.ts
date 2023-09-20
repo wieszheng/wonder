@@ -92,6 +92,18 @@ export default [
     ],
   },
   {
+    path: '/system',
+    icon: 'lock',
+    name: '后台管理',
+    routes: [
+      {
+        path: '/system/user',
+        name: '用户管理',
+        component: './Manager/UserList',
+      },
+    ],
+  },
+  {
     path: '*',
     layout: false,
     component: './404',
