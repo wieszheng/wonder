@@ -159,7 +159,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
  * 它基于 axios 和 ahooks 的 useRequest 提供了一套统一的网络请求和错误处理方案。
  * @doc https://umijs.org/docs/max/request#配置
  */
-const DOMAIN = process.env.NODE_ENV === 'production' ? 'http://43.143.159.11:7777' : 'http://43.143.159.11:7777';
+const DOMAIN = process.env.NODE_ENV === 'production' ? 'http://154.8.177.173:7777' : 'http://154.8.177.173:7777';
 export const request = {
   ...errorConfig,
   baseURL: `${DOMAIN}`
