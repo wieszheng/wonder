@@ -89,6 +89,11 @@ export default [
         name: '播放器',
         component: './Tool/Play',
       },
+      {
+        path: '/tool/unicode',
+        name: 'Unicode 转换',
+        component: './Tool/unicode',
+      },
     ],
   },
   {
