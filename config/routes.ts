@@ -92,7 +92,7 @@ export default [
       {
         path: '/tool/unicode',
         name: 'Unicode 转换',
-        component: './Tool/unicode',
+        component: './Tool/Unicodes',
       },
     ],
   },
