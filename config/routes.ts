@@ -94,6 +94,11 @@ export default [
         name: 'Unicode 转换',
         component: './Tool/Unicodes',
       },
+      {
+        path: '/tool/json',
+        name: 'Json 解析',
+        component: './Tool/Json',
+      },
     ],
   },
   {
