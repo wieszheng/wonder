@@ -8,13 +8,13 @@ import './MaterialOneDark'; // pg模式包
 import "ace-builds/src-noconflict/mode-json"
 
 
-const AceEditorJson: React.FC<any> = ({value, onChange, height, readOnly, theme}) => {
+const AceEditorJson: React.FC<any> = ({value, onChange, height, readOnly, theme, fontSize}) => {
 
   return (
     <AceEditor
       mode='json'
       theme={theme || 'material-one-dark'}
-      fontSize={14}
+      fontSize={fontSize || 14}
       showGutter
       showPrintMargin={false}
       onChange={onChange}
