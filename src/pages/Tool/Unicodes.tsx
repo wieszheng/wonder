@@ -2,7 +2,7 @@ import React from 'react';
 import Unicode from '@/components/Postman/Unicode';
 
 
-const Request: React.FC = () => {
+const Unicodes: React.FC = () => {
 
   return (
     <Unicode/>
