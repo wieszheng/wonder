@@ -13,8 +13,8 @@ const JsonE: React.FC = () => {
       <Row gutter={[30, 8]} style={{ padding: '24px 24px' }}>
         <Col span={12}>
           <TextArea
-            rows={30}
             placeholder="Json 内容"
+            style={{ height: '53vh', resize: 'none' }}
             onChange={(e) => {
               setTxt(e.target.value);
             }}
