@@ -99,6 +99,11 @@ export default [
         name: 'Json 解析',
         component: './Tool/Json',
       },
+      {
+        path: '/tool/recorder',
+        name: '记录器',
+        component: './Tool/Recorder',
+      },
     ],
   },
   {
