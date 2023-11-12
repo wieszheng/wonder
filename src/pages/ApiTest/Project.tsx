@@ -109,7 +109,51 @@ const Project: React.FC = () => {
       setPagination({...pagination, current: 1, total: res.total});
     }
   };
+  const onDeleteProject = async (projectId: any) => {
+    const res = await deleteProject({projectId: projectId});
+    if (res) {
+      fetchData();
+    }
+  }
+  const menu = (item: { id: any; }) => <Menu>
+    <Menu.Item icon={<AliwangwangOutlined/>}>
+      <a>
+        申请权限
+      </a>
+    </Menu.Item>
+    <Menu.Item icon={<DeleteTwoTone twoToneColor="red"/>}>
+      <a onClick={e => {
+        e.stopPropagation();
+        Modal.confirm({
+          title: '你确定要删除此项目吗?',
+          icon: <ExclamationCircleOutlined/>,
+          content: '删除后不可恢复，请谨慎~',
+          okText: '确定',
+          okType: 'danger',
+          cancelText: '点错了',
+          onOk: async () => {
+            await onDeleteProject(item.id);
 
+          },
+        });
+      }}>
+        删除项目
+      </a>
+    </Menu.Item>
+  </Menu>;
+
+  const CardTitle = ({item}) => (
+    <div style={{fontSize: 16, fontWeight: 'bold', color: 'rgb(65, 74, 105)'}}>
+      {item.name}
+      <span style={{float: 'right', lineHeight: '24px', fontSize: 24, marginRight: 4}}>
+          <Dropdown overlay={menu(item)} onClick={e => {
+            e.stopPropagation();
+          }}>
+            <IconFont type="icon-more1" style={{cursor: 'pointer'}}/>
+          </Dropdown>
+        </span>
+    </div>
+  )
   return (
     <PageContainer title={false} breadcrumb={{}}>
       <FormForModal
@@ -157,7 +201,7 @@ const Project: React.FC = () => {
                 <Card hoverable className={styles.card}>
                   <Card.Meta
                     avatar={<Avatar src={item.avatar || logo} size={48}/>}
-                    title={<div style={{fontSize: 16, fontWeight: 'bold', color: 'rgb(65, 74, 105)'}}>{item.name}</div>}
+                    title={<CardTitle item={item}/>}
                     description={<div>
                       <p className={styles.description}>{item.description || '无'}</p>
                       <p>负责人 {<UserLink user={userMap[item.owner]}/>}</p>
